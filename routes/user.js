@@ -3,13 +3,9 @@ const app = express()
 
 const modelUser = require('../models/user');
 
-app.get('/',  async(req, res)=>{
+app.get('/',  function(req, res){
 
-    let result
-
-   try {
-
-        result = await modelUser.allUsers( (err, userDB )=>{
+    modelUser.allUsers( function(err, userDB ){
             if(err){
                 return res.status(400).json({
                     ok: false,
@@ -25,11 +21,6 @@ app.get('/',  async(req, res)=>{
             })
             
         })
-       
-   } catch (e) {
-        console.log(`Se genero un error`)
-   }
-
 })
 
 
