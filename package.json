@@ -1,0 +1,24 @@
+{
+  "name": "dohck",
+  "version": "1.0.0",
+  "description": "este es un demo de un api para DigitalOcean",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SteamDevs/DO-API.git"
+  },
+  "author": "hackobo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SteamDevs/DO-API/issues"
+  },
+  "homepage": "https://github.com/SteamDevs/DO-API#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
+  }
+}
