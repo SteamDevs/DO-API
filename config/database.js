@@ -1,10 +1,10 @@
 const myslq = require('mysql')
 
 let params = {
-   host      : 'localhost',
+   host      : '157.230.189.189',
    user      : 'root',
-  password   : '',
-  database   : 'dbdo'
+  password   : 'developer',
+  database   : 'digi'
 }
 
 let cnn = myslq.createPool(params);
