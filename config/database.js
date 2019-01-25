@@ -1,9 +1,9 @@
 const myslq = require('mysql')
 
 let params = {
-   host      : '157.230.189.189',
+   host      : 'localhost',
    user      : 'root',
-  password   : 'developer',
+  password   : '',
   database   : 'digi'
 }
 
