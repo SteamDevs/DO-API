@@ -4,7 +4,7 @@ let params = {
   host            : 'localhost',
   user            : 'root',
   password        : 'developer',
-  database        : 'bgtdemo'
+  database        : 'fxbus'
 }
 
 let cnn = myslq.createPool(params);
