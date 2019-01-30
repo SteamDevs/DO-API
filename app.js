@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const myslq = require('mysql')
 
 //Init Routes
 let userRoute = require('./routes/user')
@@ -10,6 +11,32 @@ app.get('/', function(req, res){
     res.send({
         message: 'hola esta es una prueba exitosa'
     })
+})
+
+app.get('/test', function(req, res){
+    
+    let config = {
+        host            :  process.env.HOST || 'localhost',
+        user            :  process.env.USER || 'root',
+        password        :  process.env.PASS || 'developer',
+        database        :  process.env.DB   || 'fxbus'
+    }
+
+    let cnn  = myslq.createConnection(config);
+
+    if(cnn){
+
+        res.send({
+            message: 'Conexion exitosa',
+            db: cnn
+        })
+
+    }else{
+        res.send({
+           message: 'no se pudo realizar la conexion'
+        })
+    }
+
 })
 
 
