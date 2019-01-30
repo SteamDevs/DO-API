@@ -43,6 +43,29 @@ app.get('/:id_school', function(req, res){
     })
 })
 
+app.get('/us_list/:idx', function(req, res){
+
+    let idx = req.params.idx;
+
+ 
+    modelSchool.getUsersforSchools(idx, function(err, usersShcoolDB){
+        if(err){
+            return res.status(400).json({
+                ok: false,
+                message: 'error DB',
+                errors: err
+            })
+        }
+
+        res.status(201).json({
+            ok:true,
+            message: 'consulta exitosa',
+            usersShcoolDB
+        })
+    })
+
+})
+
 
 
 module.exports = app

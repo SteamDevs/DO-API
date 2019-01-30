@@ -19,6 +19,20 @@ let schools = {
                 callback(null, results)
             })
         }
+    },
+
+    getUsersforSchools : (id, callback)=>{
+        if(db){
+            let sql = `SELECT bgt_users.id_user as iduser, bgt_users.username as username, 
+                bgt_users.fullname as fullname, bgt_users.password as password, bgt_users.status 
+                as status, bgt_users.email as email FROM bgt_users, bgt_schools_users 
+                    WHERE bgt_users.id_user = bgt_schools_users.id_user AND bgt_schools_users.id_school = ?`
+            
+            db.query(sql, id, (err, results)=>{
+                if (err) throw err;
+                callback(null, results )
+            })        
+        }
     }
 }
 
