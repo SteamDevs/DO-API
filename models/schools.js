@@ -47,6 +47,18 @@ let schools = {
                 callback(null, results)
             })    
         }
+    },
+
+    getBusesforSchool : (id, callback)=>{
+        if(db){
+            let sql = `SELECT id_bus, id_school, bgt_buses.name as nombre 
+                FROM bgt_buses WHERE id_school = ?`
+            
+            db.query(sql, id, (err, results)=>{
+                if(err) throw err;
+                callback(null, results)
+            })    
+        }
     }
 }
 
