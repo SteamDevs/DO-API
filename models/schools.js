@@ -33,6 +33,20 @@ let schools = {
                 callback(null, results )
             })        
         }
+    },
+
+    getStudentsforSchool : (id, callback)=>{
+        if(db){
+            let sql = `SELECT bgt_students.id_student as id_student, bgt_students.name as name, 
+                bgt_students.photo as photo, bgt_students.id_user_parent 
+                    FROM bgt_students, bgt_schools_users 
+                WHERE bgt_students.id_user_parent = bgt_schools_users.id_user AND bgt_schools_users.id_school= ?`
+            
+            db.query(sql, id, (err,results)=>{
+                if (err) throw err;
+                callback(null, results)
+            })    
+        }
     }
 }
 

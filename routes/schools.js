@@ -63,7 +63,27 @@ app.get('/us_list/:idx', function(req, res){
             usersShcoolDB
         })
     })
+})
 
+app.get('/students_school/:idy', function(req, res){
+
+    let idy = req.params.idy;
+
+    modelSchool.getStudentsforSchool(idy, function(err, studentsSchoolDB){
+        if(err){
+            return res.status(400).json({
+                ok: false,
+                message: 'error DB',
+                errors: err
+            })
+        }
+
+        res.status(201).json({
+            ok:true,
+            message: 'consulta exitosa',
+            studentsSchoolDB
+        })
+    })
 })
 
 
