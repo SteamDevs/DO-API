@@ -26,18 +26,12 @@ app.get('/test', function(req, res){
 
     if(cnn){
 
-        return res.status(200).json({
-            ok: true,
-            message: 'conexion exitosa',
-            results: cnn
-        })
+        console.log('conexion exitosa')
 
     }else{
-       
-        return res.send(400).json({
-            message: 'conexion fallida',
-            err: cnn
-        })
+        
+        console.log('conexion fallida')
+        
     }
 
 })
