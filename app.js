@@ -3,6 +3,7 @@ const app = express()
 
 //Init Routes
 let userRoute = require('./routes/user')
+let schoolRoute = require('./routes/schools')
 
 app.get('/', function(req, res){
 
@@ -21,6 +22,7 @@ app.use(function(req, res, next) {
 process.env.PORT = process.env.PORT || 3000;
 
 app.use('/api/v1/users', userRoute)
+app.use('/api/v1/schools', schoolRoute)
 
 app.listen(process.env.PORT, ()=>{
     console.log(`
