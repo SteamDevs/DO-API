@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-process.env.PORT = process.env.PORT || 3000;
+process.env.PORT = process.env.PORT || 1124;
 
 app.use('/api/v1/users', userRoute)
 app.use('/api/v1/schools', schoolRoute)
