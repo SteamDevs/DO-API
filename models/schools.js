@@ -9,9 +9,17 @@ let schools = {
                 callback(results)
             })
         }
-    }
+    },
 
-    //others funcions
+    getOne : (id, callback)=>{
+        if(db){
+            let sql = `SELECT * FROM bgt_schools WHERE id_school = ?`
+            db.query(sql, id, (err, results)=>{
+                if(err) throw err;
+                callback(null, results)
+            })
+        }
+    }
 }
 
 module.exports = schools

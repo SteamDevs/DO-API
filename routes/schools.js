@@ -17,7 +17,28 @@ app.get('/', function(req, res){
         res.status(201).json({
             ok:true,
             message: 'consulta exitosa',
-            results: schoolDB
+            schoolDB
+        })
+    })
+})
+
+app.get('/:id_school', function(req, res){
+
+    let id_school = req.params.id_school;
+
+    modelSchool.getOne(id_school, function(err, oneSchool){
+        if(err){
+            return res.status(400).json({
+                ok: false,
+                message: 'error DB',
+                errors: err
+            })
+        }
+
+        res.status(201).json({
+            ok:true,
+            message: 'consulta exitosa',
+            oneSchool
         })
     })
 })
