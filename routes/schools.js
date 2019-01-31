@@ -4,6 +4,7 @@ const app = express()
 const modelSchool = require('../models/schools')
 
 
+//cualquier cosa
 //Declare Routes
 app.get('/', modelSchool.getAll)
 
