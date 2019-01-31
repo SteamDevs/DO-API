@@ -3,30 +3,15 @@ const app = express()
 
 const modelSchool = require('../models/schools')
 
-app.get('/', function(req, res){
 
-    modelSchool.getAll( function (err, schoolDB){
-        if(err){
-            return res.status(400).json({
-                ok: false,
-                message: 'error DB',
-                errors: err
-            })
-        }
+//Declare Routes
+app.get('/', modelSchool.getAll)
 
-        res.status(201).json({
-            ok:true,
-            message: 'consulta exitosa',
-            schoolDB
-        })
-    })
-})
+app.get('/:id',  function(req, res){
 
-app.get('/:id_school', function(req, res){
+    let id = req.params.id;
 
-    let id_school = req.params.id_school;
-
-    modelSchool.getOne(id_school, function(err, oneSchool){
+    modelSchool.getOne( id, function(err, oneSchool){
         if(err){
             return res.status(400).json({
                 ok: false,
